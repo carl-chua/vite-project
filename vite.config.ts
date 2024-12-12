@@ -5,4 +5,7 @@ import { defineConfig } from 'vite';
 export default defineConfig({
   base: '/vite-project/', // Replace with your repository name
   plugins: [react()],
+  server: {
+    host: true, // This will bind the server to your local IP address
+  },
 });

@@ -10,6 +10,20 @@ function App() {
   const [timer, setTimer] = useState(30);
   const [timerStarted, setTimerStarted] = useState(false);
   const [showDialog, setShowDialog] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768); // Adjust the width threshold as needed
+    };
+
+    handleResize(); // Check on initial load
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   const handleMouseEnter = () => {
     if (!timerStarted) {
@@ -53,7 +67,8 @@ function App() {
       <div className="card">
         <button>score is {count}</button>
         <button
-          onMouseEnter={handleMouseEnter}
+          onMouseEnter={!isMobile ? handleMouseEnter : undefined}
+          onClick={isMobile ? handleMouseEnter : undefined}
           style={{
             position: 'absolute',
             top: buttonPosition.top,
@@ -61,7 +76,7 @@ function App() {
             transition: 'top 0.3s, left 0.3s',
           }}
         >
-          Hover over me!
+          {isMobile ? 'Tap me!' : 'Hover over me!'}
         </button>
         <p>Time remaining: {timer} seconds</p>
       </div>

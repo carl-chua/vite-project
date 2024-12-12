@@ -36,7 +36,7 @@ function App() {
   };
 
   const handleRestart = () => {
-    setCount(1);
+    setCount(0);
     setButtonPosition({ top: '50%', left: '50%' });
     setTimer(30);
     setTimerStarted(false);

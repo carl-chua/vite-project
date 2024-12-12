@@ -7,7 +7,7 @@ function App() {
     top: '50%',
     left: '50%',
   });
-  const [timer, setTimer] = useState(2);
+  const [timer, setTimer] = useState(30);
   const [timerStarted, setTimerStarted] = useState(false);
   const [showDialog, setShowDialog] = useState(false);
 

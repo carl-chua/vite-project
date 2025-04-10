@@ -1,0 +1,14 @@
+.webcam-container {
+  position: relative;
+  width: 504px;
+}
+
+.overlay {
+  position: absolute;
+  top: 75px; /* Adjust as needed */
+  left: 50px; /* Adjust as needed */
+  width: 400px; /* Adjust as needed */
+  height: 150px; /* Adjust as needed */
+  border: 2px solid green;
+  pointer-events: none;
+}
